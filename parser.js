@@ -35,6 +35,7 @@ fs.readFile(args[2], (err, buffer) => {
         console.log(record)
         console.log("\n--------------\n")
         // console.log(e)
+        
 
 
         // let record = {
