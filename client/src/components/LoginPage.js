@@ -48,11 +48,10 @@ export default () => {
                             console.log(password)
                             if (!!login && !!password) {
                                 setError(false)
-                                history.push('/toxic')
+                                history.push('/match')
                             } else {
                                 setError(true)
                             }
-                            // history.push('/toxic')
                         }}>
                             Login
                         </Button>

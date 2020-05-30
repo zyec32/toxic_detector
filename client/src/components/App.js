@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 import ToxicReportPage from './ToxicReportPage'
 import LoginPage from './LoginPage'
+import MatchPage from './MatchPage'
 
 
 const Title = styled.h1`
@@ -24,6 +25,9 @@ export default () => (
         <Switch>
             <Route exact path="/">
                 <LoginPage />
+            </Route>
+            <Route exact path="/match">
+                <MatchPage />
             </Route>
             <Route exact path="/toxic">
                 <ToxicReportPage name={'Player1'} />
