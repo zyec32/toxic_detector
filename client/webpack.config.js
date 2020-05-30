@@ -15,6 +15,19 @@ module.exports = {
         use: {
           loader: "babel-loader"
         },
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [
+          'file-loader'
+        ]
+      },
+      {
+        test: /\.mp3$/,
+        include: path.resolve(__dirname, 'src/audios'),
+        use: [
+          'file-loader'
+        ]
       }
     ]
   },
@@ -23,4 +36,4 @@ module.exports = {
       template: "./src/index.html"
     })
   ]
-};
+}
