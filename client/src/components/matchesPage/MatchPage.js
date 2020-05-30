@@ -9,11 +9,18 @@ function createData(name, calories, fat, carbs, protein) {
 }
 
 const rows = [
-    createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-    createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-    createData('Eclair', 262, 16.0, 24, 6.0),
-    createData('Cupcake', 305, 3.7, 67, 4.3),
-    createData('Gingerbread', 356, 16.0, 49, 3.9),
+    {
+        name: 'Zyec32',
+        value: 10
+    },
+    {
+        name: 'Zyec32',
+        value: 10
+    },
+    {
+        name: 'Zyec32',
+        value: 10
+    },
 ];
 
 const PageWrapper = styled.div`
@@ -34,6 +41,20 @@ const LoadingWrapper = styled.div`
 const TableRoot = styled.div`
     width: 220px;
 `
+
+const CellWrapper = styled.div`
+    font-size: 36px;
+    line-height: 42px;
+    color: white;
+`
+
+const Cell = ({ children, ...otherProps }) => (
+    <TableCell {...otherProps}>
+        <CellWrapper>
+            {children}
+        </CellWrapper>
+    </TableCell>
+)
 
 export default () => {
     const history = useHistory();
@@ -73,17 +94,19 @@ export default () => {
                         <Table aria-label="customized table">
                             <TableHead>
                                 <TableRow>
-                                    <TableCell>Player</TableCell>
-                                    <TableCell align="right">Toxic index</TableCell>
+                                    <Cell align="center">Player</Cell>
+                                    <Cell align="center">Toxic index</Cell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
                                 {rows.map((row) => (
-                                    <TableRow key={row.name}>
-                                        <TableCell component="th" scope="row">
+                                    <TableRow key={row.name} onClick={() => {
+                                        history.push('/toxic')
+                                    }} >
+                                        <Cell align="center" component="th" scope="row">
                                             {row.name}
-                                        </TableCell>
-                                        <TableCell align="right">{row.calories}</TableCell>
+                                        </Cell>
+                                        <Cell align="center" >{row.value}</Cell>
                                     </TableRow>
                                 ))}
                             </TableBody>
