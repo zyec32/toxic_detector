@@ -6,8 +6,8 @@ import {
   Route,
   Redirect
 } from 'react-router-dom';
-import Audio from '../audios/ebanoe_myaso_cut.mp3'
-import ToxicRow from './ToxicRow'
+import ToxicReportPage from './ToxicReportPage'
+
 
 const Title = styled.h1`
     font-size: 1.5em;
@@ -17,16 +17,12 @@ const Title = styled.h1`
 
 export default () => (
     <Router>
-        <div>
+        {/* <div>
             <Title>Toxic!</Title>
-        </div>
+        </div> */}
         <Switch>
             <Route exact path="/">
-                <ToxicRow 
-                    Audio={Audio}
-                    time={'0:15'}
-                    phrase={'Ebonoe myaso'}
-                />
+                <ToxicReportPage name={'Player'} />
             </Route>
             <Redirect to="/" />
         </Switch>
