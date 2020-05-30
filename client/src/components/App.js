@@ -9,6 +9,7 @@ import {
 import ToxicReportPage from './toxicDetectorPage/ToxicReportPage'
 import LoginPage from './loginPage/LoginPage'
 import MatchPage from './matchesPage/MatchPage'
+import MainPage from './mainPage/MainPage'
 
 
 const Title = styled.h1`
@@ -24,6 +25,9 @@ export default () => (
         </div> */}
         <Switch>
             <Route exact path="/">
+                <MainPage />
+            </Route>
+            <Route exact path="/login">
                 <LoginPage />
             </Route>
             <Route exact path="/match">
