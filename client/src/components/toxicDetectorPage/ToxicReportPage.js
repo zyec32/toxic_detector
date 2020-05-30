@@ -1,6 +1,6 @@
 import React from 'react'
 import ToxicTable from './ToxicTable'
-import Audio from '../audios/ebanoe_myaso_cut.mp3'
+import Audio from '../../audios/ebanoe_myaso_cut.mp3'
 import styled from 'styled-components'
 
 const Title = styled.div`

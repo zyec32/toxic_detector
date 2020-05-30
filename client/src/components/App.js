@@ -6,9 +6,9 @@ import {
   Route,
   Redirect
 } from 'react-router-dom';
-import ToxicReportPage from './ToxicReportPage'
-import LoginPage from './LoginPage'
-import MatchPage from './MatchPage'
+import ToxicReportPage from './toxicDetectorPage/ToxicReportPage'
+import LoginPage from './loginPage/LoginPage'
+import MatchPage from './matchesPage/MatchPage'
 
 
 const Title = styled.h1`

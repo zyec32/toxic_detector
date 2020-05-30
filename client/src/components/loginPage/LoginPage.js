@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Card, CardContent, CardActions, Button, TextField } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
-import FaceitLogo from '../audios/FACEIT_logo_with_caption.webp'
+import FaceitLogo from '../../audios/FACEIT_logo_with_caption.webp'
+import Faceit from 'faceit-js'
 
 
 const PageWrapper = styled.div`
@@ -34,9 +35,7 @@ const NewComponent = ({ onChangeLogin, onChangePassword, onLogIn }) => (
             {/* NOT LOADING, NO ERRORS */}
             {/* ngIf: !vm.loading && vm.paramsSpecified && !vm.error */}<div ng-if="!vm.loading && vm.paramsSpecified && !vm.error" className="ng-scope" style={{}}>
               <div className="sso__logo">
-                <a href="https://faceit.com" target="_blank">
                   <img ng-src="widgets/sso/assets/images/FACEIT_logo_with_caption.png" alt="FACEIT Challenge your game" src={FaceitLogo} />
-                </a>
               </div>
               {/* Authenticated */}
               {/* ngIf: vm.data.authenticated */}
@@ -85,11 +84,15 @@ const NewComponent = ({ onChangeLogin, onChangePassword, onLogIn }) => (
                   </div>
                   {/* Sign up link */}
                   {/* ngIf: !vm.twoFactorAuthRequired */}<div className="sso__reg ng-scope" ng-if="!vm.twoFactorAuthRequired">
-                    <strong className="pull-left text-uppercase" translate-once="ACCOUNT-DO-NOT-EXIST">Don't have an account?</strong>
+
+
+                    {/* <strong className="pull-left text-uppercase" translate-once="ACCOUNT-DO-NOT-EXIST">Don't have an account?</strong>
                     <a className="btn-link btn-xs pull-right pointer" ng-click="vm.signup();" title="FACEIT Signup Now link">
                       <span translate-once="SIGNUP-NOW">Sign up now</span>
                       <img ng-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOBAMAAADtZjDiAAAAMFBMVEUAAAD///////////////////////////////////////////////////////////87TQQwAAAAD3RSTlMAAQIFESAoTKqrrbnFzv1ctRirAAAARklEQVQIW2NgYAhiAAP2Xwpg2u7/JDDN9v6nAJiR938iVOAHTKARTMv8fwKimOb/SwDRmv+fgbnrIVwpCJdBF8JlYN4GIgHzvBeITmk/OQAAAABJRU5ErkJggg==" alt="FACEIT Signup Now link" style={{height: '12px'}} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOBAMAAADtZjDiAAAAMFBMVEUAAAD///////////////////////////////////////////////////////////87TQQwAAAAD3RSTlMAAQIFESAoTKqrrbnFzv1ctRirAAAARklEQVQIW2NgYAhiAAP2Xwpg2u7/JDDN9v6nAJiR938iVOAHTKARTMv8fwKimOb/SwDRmv+fgbnrIVwpCJdBF8JlYN4GIgHzvBeITmk/OQAAAABJRU5ErkJggg==" />
-                    </a>
+                    </a> */}
+
+                    
                   </div>{/* end ngIf: !vm.twoFactorAuthRequired */}
                 </div>{/* end ngIf: !vm.isSignup */}
                 {/* ngIf: vm.isSignup */}
@@ -143,6 +146,14 @@ export default () => {
     const [login, setLogin] = useState(null)
     const [password, setPassword] = useState(null)
     const [error, setError] = useState(false)
+    const faceit = new Faceit("ad3fa963-5b8a-4c36-85cd-979acb242bbf");
+    faceit.account().then(data => console.log(data));
+
+    console.log("faceit", faceit)
+    // faceit.getPlayerInfo("zyec32").then(function (player) {
+    //     console.log(player);
+    // });
+
     return (
         <PageWrapper>
             <NewComponent />
