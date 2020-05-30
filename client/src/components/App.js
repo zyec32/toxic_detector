@@ -7,6 +7,7 @@ import {
   Redirect
 } from 'react-router-dom';
 import ToxicReportPage from './ToxicReportPage'
+import LoginPage from './LoginPage'
 
 
 const Title = styled.h1`
@@ -22,7 +23,10 @@ export default () => (
         </div> */}
         <Switch>
             <Route exact path="/">
-                <ToxicReportPage name={'Player'} />
+                <LoginPage />
+            </Route>
+            <Route exact path="/toxic">
+                <ToxicReportPage name={'Player1'} />
             </Route>
             <Redirect to="/" />
         </Switch>
