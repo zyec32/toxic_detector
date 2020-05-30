@@ -50,17 +50,17 @@ export default ({ name }) => {
                     {
                         Audio,
                         time: '0:14',
-                        text: 'Ebonoe myaso'
+                        text: 'Ебаное мясо'
                     },
                     {
                         Audio,
-                        time: '0:14',
-                        text: 'Ebonoe myaso'
+                        time: '0:23',
+                        text: 'Оранж ты идиот? Скажи я в смоку блять пропускаю челов.'
                     },
                     {
                         Audio,
-                        time: '0:14',
-                        text: 'Ebonoe myaso'
+                        time: '0:44',
+                        text: 'А толку дядь? Нету. Потому что ты долбоеб'
                     }
                 ]}
             />
