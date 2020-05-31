@@ -26,14 +26,14 @@ const rows = [
         date: '26-05-2020',
         map: 'de_mirage',
         score: '16:19',
-        toxic: 2
+        toxic: 9
     },
     {
         id: '1-68d3fbf5-041a-4763-9a30-0dcc244deaff',
         date: '27-05-2020',
         map: 'de_dust2',
         score: '16:12',
-        toxic: 3
+        toxic: 14
     },
 ];
 
@@ -110,7 +110,7 @@ export default ({  }) => {
                         <Table aria-label="customized table">
                             <TableHead>
                                 <TableRow>
-                                    <Cell color={'#FFFFFF'} align="center">Lobby URL</Cell>
+                                    <Cell color={'#FFFFFF'} align="center">URL</Cell>
                                     <Cell color={'#FFFFFF'} align="center">Data</Cell>
                                     <Cell color={'#FFFFFF'} align="center">Map</Cell>
                                     <Cell color={'#FFFFFF'} align="center">Score</Cell>
@@ -124,8 +124,8 @@ export default ({  }) => {
                                         
                                     }} >
                                         <Cell align="center" component="th" scope="row" color={'#FFFFFF'}>
-                                            <a href={`https://www.faceit.com/en/csgo/room/${row.id}`}>
-                                                Go
+                                            <a target="_blank" href={`https://www.faceit.com/en/csgo/room/${row.id}`}>
+                                                Go lobby
                                             </a>
                                         </Cell>
                                         <Cell align="center" color={'white'} >{row.date}</Cell>

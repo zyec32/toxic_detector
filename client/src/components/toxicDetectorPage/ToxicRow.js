@@ -21,7 +21,7 @@ const WhiteCheckbox = withStyles({
     checked: {},
   })((props) => <Checkbox color="default" {...props} />);
 
-export default ({ time, text, isChecked, onChange, id, player, round, ...other }) => {
+export default ({ time, text, isChecked, onChange, id, player, round, roundNumber, ...other }) => {
     return (
         <Fragment>
             <WhiteCheckbox 
@@ -34,10 +34,10 @@ export default ({ time, text, isChecked, onChange, id, player, round, ...other }
                 checked={isChecked}
             />
             <Text> {time} </Text>
-            <Text> {round} </Text>
+            {/* <Text> {round} </Text> */}
             <Text> {player} </Text>
             <Text> {text} </Text>
-            <AudioButton {...other} />
+            <AudioButton {...other} gameNumber={roundNumber} />
         </Fragment>
     )
 }

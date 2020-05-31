@@ -5,7 +5,7 @@ const Container = styled.div`
     color: rgba(22, 22, 22, 1);
 `
 
-const NewComponent = () => (
+const NewComponent = ({ supportData }) => (
         <Container>
           <header className="header">
             <div className="header-inner clearfix">
@@ -57,14 +57,14 @@ const NewComponent = () => (
                     <div className="form">
                       <h1>Submit a request</h1>
                       <div className="underline pull-up-30" />
-                      <form id="new_request" className="request-form" data-form data-form-type="request" action="/hc/en-us/requests" acceptCharset="UTF-8" method="post"><input name="utf8" type="hidden" defaultValue="✓" /><input type="hidden" name="authenticity_token" defaultValue="hc:requests:client:ibQPQLmq3TWR7kEwP3EHWfevRtFt9WXN5naJ1DQa2wTGmT/SCpYfMZ4RmBiqAdvBnOSC4VpbtJmyl72dalbwmQ==" data-hc-status="ready" />
+                      <form id="new_request" className="request-form" data-form data-form-type="request" action="/good" acceptCharset="UTF-8" method="get"><input name="utf8" type="hidden" defaultValue="✓" /><input type="hidden" name="authenticity_token" defaultValue="hc:requests:client:ibQPQLmq3TWR7kEwP3EHWfevRtFt9WXN5naJ1DQa2wTGmT/SCpYfMZ4RmBiqAdvBnOSC4VpbtJmyl72dalbwmQ==" data-hc-status="ready" />
                         <input type="hidden" name="request[ticket_form_id]" id="request_ticket_form_id" defaultValue={100979} />
                         <div className="form-field string required request_anonymous_requester_email"><label htmlFor="request_anonymous_requester_email">Your email address</label>
-                          <input type="text" name="request[anonymous_requester_email]" id="request_anonymous_requester_email" aria-required="true" />
+                          <input type="text" value={''} name="request[anonymous_requester_email]" id="request_anonymous_requester_email" aria-required="true" />
                         </div>
                         <div className="form-field string  required  request_custom_fields_26697809">
                           <label id="request_custom_fields_26697809_label" htmlFor="request_custom_fields_26697809">Contact Reason</label>
-                          <input type="hidden" name="request[custom_fields][26697809]" id="request_custom_fields_26697809" autoComplete="off" data-tagger="[{&quot;label&quot;:&quot;-&quot;,&quot;value&quot;:&quot;&quot;},{&quot;label&quot;:&quot;Account Management&quot;,&quot;options&quot;:[{&quot;label&quot;:&quot;FACEIT Account Compromised&quot;,&quot;value&quot;:&quot;account_management____faceit_account_compromised&quot;},{&quot;label&quot;:&quot;Change my name&quot;,&quot;value&quot;:&quot;account_management____change_my_name&quot;},{&quot;label&quot;:&quot;Change my email&quot;,&quot;value&quot;:&quot;account_management____change_my_email_&quot;},{&quot;label&quot;:&quot;Change game ID&quot;,&quot;value&quot;:&quot;account_management____change_game_id_&quot;},{&quot;label&quot;:&quot;Update account settings&quot;,&quot;value&quot;:&quot;account_management____update_account_settings&quot;},{&quot;label&quot;:&quot;Missions&quot;,&quot;value&quot;:&quot;account_management____missions&quot;},{&quot;label&quot;:&quot;Deactivate Account&quot;,&quot;value&quot;:&quot;account_management____deactivate_account&quot;}]},{&quot;label&quot;:&quot;Subscriptions&quot;,&quot;options&quot;:[{&quot;label&quot;:&quot;Buy a Game/Premium Sub&quot;,&quot;value&quot;:&quot;subscriptions____buy_a_sub&quot;},{&quot;label&quot;:&quot;Buy a Organizer Sub&quot;,&quot;value&quot;:&quot;subscriptions____buy_a_organizer_sub_issue&quot;},{&quot;label&quot;:&quot;Cancel my Sub&quot;,&quot;value&quot;:&quot;subscriptions____cancel_my_sub&quot;},{&quot;label&quot;:&quot;Refund&quot;,&quot;value&quot;:&quot;subscriptions____refund&quot;},{&quot;label&quot;:&quot;Renew my Sub&quot;,&quot;value&quot;:&quot;subscriptions____renew_my_sub_&quot;},{&quot;label&quot;:&quot;Other&quot;,&quot;value&quot;:&quot;subscriptions____other_&quot;}]},{&quot;label&quot;:&quot;I am Banned&quot;,&quot;options&quot;:[{&quot;label&quot;:&quot;Justice Ban&quot;,&quot;value&quot;:&quot;i_am_banned____justice_ban&quot;},{&quot;label&quot;:&quot;Verbal/Text Abuse Ban (Minerva)&quot;,&quot;value&quot;:&quot;_i_have_a_verbal_abuse_ban__minerva_&quot;},{&quot;label&quot;:&quot;AFK/Leaver Ban&quot;,&quot;value&quot;:&quot;i_am_banned____i_have_a_cooldown&quot;},{&quot;label&quot;:&quot;Vac Ban&quot;,&quot;value&quot;:&quot;i_am_banned____vac_ban&quot;},{&quot;label&quot;:&quot;Cheating&quot;,&quot;value&quot;:&quot;i_am_banned____cheating&quot;},{&quot;label&quot;:&quot;Ban Evasion&quot;,&quot;value&quot;:&quot;i_am_banned____ban_evasion_&quot;},{&quot;label&quot;:&quot;Multiple Accounts&quot;,&quot;value&quot;:&quot;i_am_banned____multiple_accounts&quot;},{&quot;label&quot;:&quot;Repeated Infraction&quot;,&quot;value&quot;:&quot;i_am_banned____repeated_infraction&quot;},{&quot;label&quot;:&quot;Unsportsmanlike Conduct&quot;,&quot;value&quot;:&quot;i_am_banned____unsportsmanlike_conduct__&quot;}]},{&quot;label&quot;:&quot;Report Player&quot;,&quot;options&quot;:[{&quot;label&quot;:&quot;Griefing/Racism&quot;,&quot;value&quot;:&quot;report_infraction____griefing&quot;},{&quot;label&quot;:&quot;Cheating&quot;,&quot;value&quot;:&quot;someone_is_cheating___report_a_player&quot;},{&quot;label&quot;:&quot;Smurf/Multiple account&quot;,&quot;value&quot;:&quot;report_infraction____smurf&quot;},{&quot;label&quot;:&quot;Boosting&quot;,&quot;value&quot;:&quot;report_infraction____boosting&quot;},{&quot;label&quot;:&quot;Ladder Abuse&quot;,&quot;value&quot;:&quot;report_infraction____ladder_abuse&quot;},{&quot;label&quot;:&quot;Offensive Name/Avatar&quot;,&quot;value&quot;:&quot;report_infraction____offensive_name_avatar&quot;},{&quot;label&quot;:&quot;Other&quot;,&quot;value&quot;:&quot;pubg____report_player_request&quot;}]},{&quot;label&quot;:&quot;Recover my Account&quot;,&quot;options&quot;:[{&quot;label&quot;:&quot;FACEIT Account Compromised&quot;,&quot;value&quot;:&quot;recover_my_account____faceit_account_compromised&quot;},{&quot;label&quot;:&quot;Forgotten Email&quot;,&quot;value&quot;:&quot;recover_my_account____forgotten_email&quot;},{&quot;label&quot;:&quot;Dont have access to email account&quot;,&quot;value&quot;:&quot;recover_my_account____dont_have_access_to_email_account_&quot;},{&quot;label&quot;:&quot;Two Factor Auth&quot;,&quot;value&quot;:&quot;recover_my_account____two_factor_auth&quot;},{&quot;label&quot;:&quot;Other&quot;,&quot;value&quot;:&quot;recover_my_account____other&quot;}]},{&quot;label&quot;:&quot;Live Issue or Bug&quot;,&quot;options&quot;:[{&quot;label&quot;:&quot;Mobile Verification&quot;,&quot;value&quot;:&quot;live_issue_or_bug____mobile_verification&quot;},{&quot;label&quot;:&quot;Anti-Cheat&quot;,&quot;options&quot;:[{&quot;label&quot;:&quot;Disconnected (AFK)&quot;,&quot;value&quot;:&quot;issue_or_bug____anti_cheat____disconnected__afk__&quot;},{&quot;label&quot;:&quot;Invalid Certificate (AFK)&quot;,&quot;value&quot;:&quot;issue_or_bug____anti_cheat____invalid_certificate__afk__&quot;},{&quot;label&quot;:&quot;OS requires updates&quot;,&quot;value&quot;:&quot;issue_or_bug____anti_cheat____os_requires_updates&quot;},{&quot;label&quot;:&quot;Testing signing needs to be disabled&quot;,&quot;value&quot;:&quot;issue_or_bug____anti_cheat____testing_signing_needs_to_be_disabled&quot;},{&quot;label&quot;:&quot;Other&quot;,&quot;value&quot;:&quot;issue_or_bug____anti_cheat____other&quot;}]},{&quot;label&quot;:&quot;FACEIT Website/Client&quot;,&quot;value&quot;:&quot;issue_or_bug___faceit_com&quot;},{&quot;label&quot;:&quot;Other&quot;,&quot;value&quot;:&quot;issue_or_bug____other&quot;}]},{&quot;label&quot;:&quot;Game Registration&quot;,&quot;options&quot;:[{&quot;label&quot;:&quot;I have a VAC ban&quot;,&quot;value&quot;:&quot;game_registration____i_have_a_vac_ban&quot;},{&quot;label&quot;:&quot;CSGO&quot;,&quot;value&quot;:&quot;game_registration____csgo&quot;},{&quot;label&quot;:&quot;Battalion 1944&quot;,&quot;value&quot;:&quot;game_registration____battalion_1944&quot;},{&quot;label&quot;:&quot;PUBG&quot;,&quot;value&quot;:&quot;game_registration____pubg&quot;},{&quot;label&quot;:&quot;DOTA2&quot;,&quot;value&quot;:&quot;game_registration____dota2&quot;},{&quot;label&quot;:&quot;WOT&quot;,&quot;value&quot;:&quot;game_registration____wot&quot;},{&quot;label&quot;:&quot;SMITE&quot;,&quot;value&quot;:&quot;game_registration____smite&quot;},{&quot;label&quot;:&quot;ROCKET LEAGUE&quot;,&quot;value&quot;:&quot;game_registration____rocket_league&quot;},{&quot;label&quot;:&quot;LOL&quot;,&quot;value&quot;:&quot;game_registration____lol&quot;},{&quot;label&quot;:&quot;INSIDIA&quot;,&quot;value&quot;:&quot;game_registration____insidia&quot;},{&quot;label&quot;:&quot;NHL&quot;,&quot;value&quot;:&quot;game_registration____nhl&quot;},{&quot;label&quot;:&quot;Other&quot;,&quot;value&quot;:&quot;game_registration____other&quot;}]},{&quot;label&quot;:&quot;Tournament, League or Ladder&quot;,&quot;options&quot;:[{&quot;label&quot;:&quot;Didnt get my ELO&quot;,&quot;value&quot;:&quot;tournament__league_or_ladder____didnt_get_my_elo&quot;},{&quot;label&quot;:&quot;Ranking and ELO Questions&quot;,&quot;value&quot;:&quot;tournament__league_or_ladder____ranking_elo&quot;},{&quot;label&quot;:&quot;Didn't receive my points&quot;,&quot;value&quot;:&quot;tournament__league_or_ladder____didn_t_receive_my_points&quot;},{&quot;label&quot;:&quot;Statistics&quot;,&quot;value&quot;:&quot;tournament__league_or_ladder____statistics&quot;},{&quot;label&quot;:&quot;Other&quot;,&quot;value&quot;:&quot;tournament__league_or_ladder____other&quot;}]},{&quot;label&quot;:&quot;Shop or Trade Order&quot;,&quot;options&quot;:[{&quot;label&quot;:&quot;How to?&quot;,&quot;value&quot;:&quot;shop_or_trade_order____how_to__&quot;},{&quot;label&quot;:&quot;Cancel my item&quot;,&quot;value&quot;:&quot;shop_or_trade_order____cancel_my_item&quot;},{&quot;label&quot;:&quot;Where is my item?&quot;,&quot;value&quot;:&quot;shop_or_trade_order____where_is_my_item__&quot;},{&quot;label&quot;:&quot;Other&quot;,&quot;value&quot;:&quot;shop_or_trade_order____other&quot;}]},{&quot;label&quot;:&quot;Won a Prize&quot;,&quot;options&quot;:[{&quot;label&quot;:&quot;FACEIT Points&quot;,&quot;value&quot;:&quot;won_a_prize____faceit_points&quot;},{&quot;label&quot;:&quot;Community Ladder Item&quot;,&quot;value&quot;:&quot;won_a_prize____community_ladder_item&quot;},{&quot;label&quot;:&quot;Cash Prize Claim&quot;,&quot;value&quot;:&quot;cash_prize_claim&quot;}]},{&quot;label&quot;:&quot;Join our  Volunteer Team&quot;,&quot;value&quot;:&quot;join_our_team&quot;},{&quot;label&quot;:&quot;GDPR&quot;,&quot;options&quot;:[{&quot;label&quot;:&quot;Enquire about Privacy Policy&quot;,&quot;value&quot;:&quot;gdpr____enquire_about_privacy_policy&quot;},{&quot;label&quot;:&quot;Enquire about Terms of Service&quot;,&quot;value&quot;:&quot;gdpr____enquire_about_terms_of_service&quot;},{&quot;label&quot;:&quot;Personal Data Request&quot;,&quot;value&quot;:&quot;gdpr____personal_data_request&quot;},{&quot;label&quot;:&quot;Personal Data Removal&quot;,&quot;value&quot;:&quot;gdpr____delete_my_account&quot;}]}]" aria-required="true" aria-describedby="request_custom_fields_26697809_hint" aria-labelledby="request_custom_fields_26697809_label" /><a className="nesty-input" tabIndex={0} aria-haspopup="true" aria-expanded="false" aria-controls="_liio4hu6e" aria-required="true" aria-labelledby="request_custom_fields_26697809_label" aria-describedby="request_custom_fields_26697809_hint" style={{maxWidth: '100%'}}>-</a>
+                          <input type="text"   aria-required="true" value={'Other'}/>
                           <p id="request_custom_fields_26697809_hint">Please take the time to read each initial Contact Reason that best fits your issue and then choose the appropriate secondary reason afterwards.</p>
                         </div>
                         <div className="form-field string  required  request_custom_fields_360000516280">
@@ -74,7 +74,7 @@ const NewComponent = () => (
                         </div>
                         <div className="form-field string  required  request_custom_fields_360000521599">
                           <label id="request_custom_fields_360000521599_label" htmlFor="request_custom_fields_360000521599">Game</label>
-                          <input type="hidden" name="request[custom_fields][360000521599]" id="request_custom_fields_360000521599" autoComplete="off" data-tagger="[{&quot;label&quot;:&quot;-&quot;,&quot;value&quot;:&quot;&quot;},{&quot;label&quot;:&quot;CSGO&quot;,&quot;value&quot;:&quot;csgo&quot;},{&quot;label&quot;:&quot;Battalion 1944&quot;,&quot;value&quot;:&quot;battalion_1944&quot;},{&quot;label&quot;:&quot;PUBG&quot;,&quot;value&quot;:&quot;pubg&quot;},{&quot;label&quot;:&quot;RAINBOW 6&quot;,&quot;value&quot;:&quot;rainbow_6&quot;},{&quot;label&quot;:&quot;CSDZ&quot;,&quot;value&quot;:&quot;csdz&quot;},{&quot;label&quot;:&quot;DOTA 2&quot;,&quot;value&quot;:&quot;dota_2&quot;},{&quot;label&quot;:&quot;ROCKET LEAGUE&quot;,&quot;value&quot;:&quot;rocket_league&quot;},{&quot;label&quot;:&quot;WOT&quot;,&quot;value&quot;:&quot;wot&quot;},{&quot;label&quot;:&quot;TEAM FORTRESS 2&quot;,&quot;value&quot;:&quot;team_fortress_2&quot;},{&quot;label&quot;:&quot;LOL&quot;,&quot;value&quot;:&quot;lol&quot;},{&quot;label&quot;:&quot;SMITE&quot;,&quot;value&quot;:&quot;smite&quot;},{&quot;label&quot;:&quot;DIRTYBOMB&quot;,&quot;value&quot;:&quot;dirtybomb&quot;},{&quot;label&quot;:&quot;INSIDIA&quot;,&quot;value&quot;:&quot;insidia&quot;},{&quot;label&quot;:&quot;MINION MASTERS&quot;,&quot;value&quot;:&quot;minion_masters&quot;},{&quot;label&quot;:&quot;NHL 19&quot;,&quot;value&quot;:&quot;nhl_19&quot;},{&quot;label&quot;:&quot;OTHER GAME&quot;,&quot;value&quot;:&quot;other_game&quot;}]" aria-required="true" aria-describedby="request_custom_fields_360000521599_hint" aria-labelledby="request_custom_fields_360000521599_label" /><a className="nesty-input" tabIndex={0} aria-haspopup="true" aria-expanded="false" aria-controls="_55lqritjb" aria-required="true" aria-labelledby="request_custom_fields_360000521599_label" aria-describedby="request_custom_fields_360000521599_hint" style={{maxWidth: '100%'}}>-</a>
+                          <input type="text"   aria-required="true" value={'CSGO'}/>
                           <p id="request_custom_fields_360000521599_hint">Please chose the game you have an issue with or if not listed chose "Other"</p>
                         </div>
                         <div className="form-field string  optional  request_custom_fields_360000523039">
@@ -84,13 +84,17 @@ const NewComponent = () => (
                         </div>
                         <div className="form-field string  required  request_subject">
                           <label id="request_subject_label" htmlFor="request_subject">Subject</label>
-                          <input type="text" name="request[subject]" id="request_subject" maxLength={150} size={150} aria-required="true" aria-describedby="request_subject_hint" aria-labelledby="request_subject_label" />
+                          <input type="text" value={'Verbal abuse '} name="request[subject]" id="request_subject" maxLength={150} size={150} aria-required="true" aria-describedby="request_subject_hint" aria-labelledby="request_subject_label" />
                           <p id="request_subject_hint">If different than the contact reason please look for the correct one or use the "Other" option and state your issue here.</p>
                         </div>
                         <div className="suggestion-list" data-hc-class="searchbox" data-hc-suggestion-list="true" />
                         <div className="form-field text  required  request_description">
                           <label id="request_description_label" htmlFor="request_description">Description</label>
-                          <textarea name="request[description]" id="request_description" aria-required="true" aria-describedby="request_description_hint" aria-labelledby="request_description_label" defaultValue={""} />
+                          <textarea name="request[description]" value={`Dear Faceit,
+According to the banning policy (https://support.faceit.com/hc/en-us/articles/208282375-FACEIT-Banning-Policy), some players in my recent match should be suspended from playing on FaceIT servers for Verbal Abuse.
+The complete list of timestamps with abusive language use is as follows: \n${supportData.sort().map((el) => {
+    return `tick ${el.tick}, ${el.player} said "${el.text}"`
+}).join('\n')}`} id="request_description" aria-required="true" aria-describedby="request_description_hint" aria-labelledby="request_description_label" defaultValue={""} />
                           <p id="request_description_hint">Please enter the details of your request. A member of our support staff will respond as soon as possible.</p>
                         </div>
                         <div className="form-field string  optional  request_custom_fields_360000677000">
@@ -98,7 +102,7 @@ const NewComponent = () => (
                           <input type="text" name="request[custom_fields][360000677000]" id="request_custom_fields_360000677000" aria-required="false" aria-describedby="request_custom_fields_360000677000_hint" aria-labelledby="request_custom_fields_360000677000_label" />
                           <p id="request_custom_fields_360000677000_hint">If you are inquiring about a shop order please place the order id from your profiles prizing section here. <a href="https://www.faceit.com/en/settings/prizes" rel="nofollow">https://www.faceit.com/en/settings/prizes</a></p>
                         </div>
-                        <div className="form-field">
+                        {/* <div className="form-field">
                           <label htmlFor="request-attachments">
                             Attachments
                           </label>
@@ -112,7 +116,8 @@ const NewComponent = () => (
                             <span data-upload-error-message />
                           </div>
                           <ul id="request-attachments-pool" className="upload-pool" data-template="upload-template" />
-                        </div>
+                        </div> */}
+                        <input type="submit" name="commit" value="Submit"></input>
                       </form>
                     </div>
                   </div>
@@ -125,45 +130,7 @@ const NewComponent = () => (
               <a title="Home" href="/hc/en-us">
                 <img className="faceit_logo" src="//theme.zdassets.com/theme_assets/942341/72543a9981201cee03f109ea1b4ab28ad571aa04.png" />
               </a>
-              <span className="support">
-                <a className="grey" href="https://corporate.faceit.com/privacy/" target="_blank">
-                  Privacy Policy
-                </a>
-                <span className="grey">|</span>
-                <a className="grey" href="https://corporate.faceit.com/terms-conditions/" target="_blank">
-                  Terms and Conditions
-                </a>
-              </span>
-              <ul>
-                Follow Us:
-                <li className="facebook">
-                  <i className="icon-facebook_Icon" />
-                  <a className="grey" href="https://www.facebook.com/FaceitCommunity/">
-                    Facebook
-                  </a>
-                  |
-                </li>
-                <li className="twitter">
-                  <i className="icon-twitter_icon" />
-                  <a className="grey" href="https://twitter.com/FACEIT">
-                    Twitter
-                  </a>
-                  |
-                </li>
-                <li className="vk">
-                  <i className="icon-twitter_icon" />
-                  <a className="grey" href="https://vk.com/faceitcommunity">
-                    VK
-                  </a>
-                  |
-                </li>
-                <li className="youtube">
-                  <i className="icon-youtube-play-button" />
-                  <a className="grey" href="https://www.youtube.com/user/FACEITcom">
-                    Youtube
-                  </a>
-                </li>
-              </ul>
+              
             </div>
           </footer>
           <div className="powered-by-zendesk" style={{backgroundColor: 'rgb(55, 60, 60)', position: 'relative', top: '1508px'}}>
@@ -177,8 +144,9 @@ const NewComponent = () => (
         </Container>
       )
 
-export default () => {
+export default ({ supportData }) => {
+    console.log(supportData)
     return (
-        <NewComponent />
+        <NewComponent supportData={supportData} />
     )
 }

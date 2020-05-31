@@ -43,7 +43,7 @@ const NewComponent = ({ onChangeLogin, onChangePassword, onLogIn }) => (
               {/* ngIf: !vm.data.authenticated */}<div ng-if="!vm.data.authenticated" className="ng-scope">
                 {/* ngIf: !vm.isSignup */}<div ng-if="!vm.isSignup" className="ng-scope">
                   {/* Login form */}
-                  <form className="sso__login ng-untouched ng-not-empty ng-invalid ng-valid-email ng-invalid-recaptcha ng-dirty ng-valid-parse ng-invalid-required"  ng-model="login" ng-submit="vm.authenticate(login)" style={{}}>
+                  <form className="sso__login ng-untouched ng-not-empty ng-invalid ng-valid-email ng-invalid-recaptcha ng-dirty ng-valid-parse ng-invalid-required"  ng-model="login" style={{}}>
                     {/* Two-Factor Auth NOT REQUIRED */}
                     {/* ngIf: !vm.twoFactorAuthRequired */}<div ng-if="!vm.twoFactorAuthRequired" className="ng-scope">
                       {/* Email */}
@@ -71,7 +71,7 @@ const NewComponent = ({ onChangeLogin, onChangePassword, onLogIn }) => (
                     {/* Submit button */}
                     <div className="form-group">
                       <div><div className="grecaptcha-badge" data-style="inline" style={{width: '256px', height: '60px', position: 'fixed', visibility: 'hidden', display: 'block', transition: 'right 0.3s ease 0s', bottom: '14px', right: '-186px', boxShadow: 'gray 0px 0px 5px', borderRadius: '2px', overflow: 'hidden'}}><div className="grecaptcha-logo"><iframe src="https://www.google.com/recaptcha/api2/anchor?ar=1&k=6LdqOzQUAAAAAEqrrRp7klFOvR_NdDWyKXYIk9Wf&co=aHR0cHM6Ly9jZG4uZmFjZWl0LmNvbTo0NDM.&hl=ru&type=submit&v=HYx6hBAtwYatsD8qzq7tXNTk&theme=dark&size=invisible&badge=inline&cb=57d5mfidb8qr" width={256} height={60} role="presentation" name="a-4p0mckh3id8o" frameBorder={0} scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox" /></div><div className="grecaptcha-error" /><textarea id="g-recaptcha-response"  className="g-recaptcha-response" style={{width: '250px', height: '40px', border: '1px solid rgb(193, 193, 193)', margin: '10px 25px', padding: '0px', resize: 'none', display: 'none'}} defaultValue={""} /></div><iframe style={{display: 'none'}} /></div>
-                      <button onClick={onLogIn} type="submit" className="btn btn-primary btn-block btn-fixed-height g-recaptcha ng-isolate-scope" theme="'dark'" vc-recaptcha key="vm.reCaptcha" data-badge="'inline'" on-create="vm.captchaCreateCallback(widgetId)" on-success="vm.captchaResponseCallback(response, 'authenticate', login)" on-expire="vm.captchaExpireCallback()" ng-disabled="vm.data.login.requestPending">
+                      <button onClick={onLogIn}  className="btn btn-primary btn-block btn-fixed-height g-recaptcha ng-isolate-scope" theme="'dark'" vc-recaptcha key="vm.reCaptcha" data-badge="'inline'" on-create="vm.captchaCreateCallback(widgetId)" on-success="vm.captchaResponseCallback(response, 'authenticate', login)" on-expire="vm.captchaExpireCallback()" ng-disabled="vm.data.login.requestPending">
                         {/* ngIf: !vm.data.login.requestPending */}<strong ng-if="!vm.data.login.requestPending" translate-once="LOGIN" className="ng-scope">Log in</strong>{/* end ngIf: !vm.data.login.requestPending */}
                         {/* ngIf: vm.data.login.requestPending */}
                       </button>
@@ -161,7 +161,14 @@ export default () => {
               onChangeLogin={setLogin}
               onChangePassword={setPassword}
               onLogIn={() => {
-                if (!!login && !!password) history.push('/match')
+                // console.log('it')
+                // console.log(login)
+                // console.log(password)
+                if (!!login && !!password) {
+                  console.log(login.target);
+                  // localStorage.setItem('email', login.target.value);
+                  history.push('/match')
+                }
               }}
             />
             {/* <Card>

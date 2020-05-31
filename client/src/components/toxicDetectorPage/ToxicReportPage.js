@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import ToxicTable from './ToxicTable'
-import Audio from '../../audios/ebanoe_myaso_cut.mp3'
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components'
 
 const Title = styled.div`
@@ -43,11 +43,12 @@ const Button = styled.button`
 
 
 
-export default ({ name, roundNumber, rows }) => {
+export default ({ name, roundNumber, rows, onSave }) => {
 
     const [data, setData] = useState(rows.map((el, i) => ({
         id: i,
         isChecked: false,
+        roundNumber,
         ...el
     })))
     //     [
@@ -79,6 +80,7 @@ export default ({ name, roundNumber, rows }) => {
 
     const [head, setHead] = useState(false)
 
+    const history = useHistory();
 
     return (
         <PageWrapper>
@@ -109,8 +111,13 @@ export default ({ name, roundNumber, rows }) => {
             />
             <Button 
                 onClick={() => {
-                    const send = data.filter(({isChecked}) => (isChecked))
-                    console.log(send)
+                    const send = data.filter(({isChecked}) => (isChecked)).map(({time,text, player}) => ({
+                        tick: time,
+                        text,
+                        player
+                    }))
+                    onSave(send)
+                    history.push('/support')
                 }}
             >
                 Send report

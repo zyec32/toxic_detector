@@ -29,7 +29,7 @@ export default ({isChecked, onChange}) => {
                 checked={isChecked}
             />
             <Text> Tick </Text>
-            <Text> Round </Text>
+            {/* <Text> Round </Text> */}
             <Text> Player </Text>
             <Text> Message </Text>
             <Text> Listen </Text>
