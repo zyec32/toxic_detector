@@ -4,7 +4,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect
+  Redirect,
+  useParams
 } from 'react-router-dom';
 import ToxicReportPage from './toxicDetectorPage/ToxicReportPage'
 import LoginPage from './loginPage/LoginPage'
@@ -14,11 +15,32 @@ import FaceitSupport from './FaceitSupport'
 import Table from './Table'
 
 
-const Title = styled.h1`
-    font-size: 1.5em;
-    text-align: center;
-    color: palevioletred;
-`
+const games = {
+    '1-ac19904a-f02b-4e03-923d-287514ec52d6': {
+        name: 'de_mirage',
+        roundNumber: 1,
+        rows: [
+            {
+                text: 'ebonoe maso',
+                time: 156,
+                player: 'toxic228',
+                round: 3
+            },
+        ]
+    },
+    '1-68d3fbf5-041a-4763-9a30-0dcc244deaff': {
+        name: 'de_dust2',
+        roundNumber: 2,
+        rows: [
+            {
+                text: 'ebonoe maso',
+                time: 156,
+                player: 'toxic228',
+                round: 3
+            },
+        ]
+    },
+}
 
 export default () => (
     <Router>
@@ -41,10 +63,18 @@ export default () => (
             <Route exact path="/match">
                 <MatchPage />
             </Route>
-            <Route exact path="/toxic">
-                <ToxicReportPage name={'Player1'} />
+            <Route path="/toxic/:id">
+                <Toxic />
             </Route>
             <Redirect to="/" />
         </Switch>
     </Router>
 )
+
+const Toxic = () => {
+    const {id} = useParams()
+    console.log(id)
+    return (
+        <ToxicReportPage {...games[id]} />
+    )
+}

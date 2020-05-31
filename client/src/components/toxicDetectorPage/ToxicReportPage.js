@@ -41,31 +41,41 @@ const Button = styled.button`
     }
 `
 
-export default ({ name }) => {
 
-    const [data, setData] = useState([
-        {
-            id: 1,
-            isChecked: false,
-            Audio,
-            time: '0:14',
-            text: 'Ебаное мясо'
-        },
-        {
-            id: 2,
-            isChecked: false,
-            Audio,
-            time: '0:23',
-            text: 'Оранж ты идиот? Скажи я в смоку блять пропускаю челов.'
-        },
-        {
-            id: 3,
-            isChecked: false,
-            Audio,
-            time: '0:44',
-            text: 'А толку дядь? Нету. Потому что ты долбоеб'
-        }
-    ])
+
+export default ({ name, roundNumber, rows }) => {
+
+    const [data, setData] = useState(rows.map((el, i) => ({
+        id: i,
+        isChecked: false,
+        ...el
+    })))
+    //     [
+    //     {
+    //         id: 1,
+    //         isChecked: false,
+    //         gameNumber: 1,
+    //         voiceNumber: 123,
+    //         time: '0:14',
+    //         text: 'Ебаное мясо'
+    //     },
+    //     {
+    //         id: 2,
+    //         isChecked: false,
+    //         gameNumber: 1,
+    //         voiceNumber: 124,
+    //         time: '0:23',
+    //         text: 'Оранж ты идиот? Скажи я в смоку блять пропускаю челов.'
+    //     },
+    //     {
+    //         id: 3,
+    //         isChecked: false,
+    //         gameNumber: 2,
+    //         voiceNumber: 123,
+    //         time: '0:44',
+    //         text: 'А толку дядь? Нету. Потому что ты долбоеб'
+    //     }
+    // ])
 
     const [head, setHead] = useState(false)
 

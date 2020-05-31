@@ -13,7 +13,7 @@ const Icon = ({ onClick }) => (
     </SVG>
 )
 
-export default ({ Audio }) => {
+export default ({ gameNumber, voiceNumber }) => {
 
     const refContainer = useRef(null);
     const [isPlaying, setIsPlaying] = useState(false)
@@ -29,7 +29,7 @@ export default ({ Audio }) => {
                     setIsPlaying(false)
                 }}
             >
-                <source src={Audio} type="audio/mp3" />
+                <source src={`http://188.124.37.17:15073/static/wav/game${gameNumber}/voice_${voiceNumber}.wav`} type="audio/x-wav" />
             </audio>
             <Icon onClick={() => {
                 if (isPlaying) refContainer.current.pause()

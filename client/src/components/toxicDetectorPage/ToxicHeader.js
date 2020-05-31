@@ -28,8 +28,10 @@ export default ({isChecked, onChange}) => {
                 color="primary"
                 checked={isChecked}
             />
-            <Text> Time </Text>
-            <Text> Phrase </Text>
+            <Text> Tick </Text>
+            <Text> Round </Text>
+            <Text> Player </Text>
+            <Text> Message </Text>
             <Text> Listen </Text>
         </Fragment>
     )
