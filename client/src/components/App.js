@@ -13,6 +13,7 @@ import MatchPage from './matchesPage/MatchPage'
 import MainPage from './mainPage/MainPage'
 import FaceitSupport from './FaceitSupport'
 import Table from './Table'
+import LastPage from './LastPage'
 
 
 const games = {
@@ -193,6 +194,7 @@ const games = {
 
 export default () => {
     const [supportData, setSupportData] = useState([])
+    const [t, st] = useState('')
     return(
     <Router>
         {/* <div>
@@ -208,24 +210,27 @@ export default () => {
             <Route exact path="/table">
                 <Table />
             </Route>
+            <Route exact path="/last">
+                <LastPage />
+            </Route>
             <Route exact path="/support">
-                <FaceitSupport supportData={supportData} />
+                <FaceitSupport supportData={supportData} t={t} />
             </Route>
             <Route exact path="/match">
                 <MatchPage />
             </Route>
             <Route path="/toxic/:id">
-                <Toxic onSave={setSupportData} />
+                <Toxic onSave={setSupportData} st={st}/>
             </Route>
             <Redirect to="/" />
         </Switch>
     </Router>
 )}
 
-const Toxic = ({ onSave }) => {
+const Toxic = ({ onSave, st }) => {
     const {id} = useParams()
     console.log(id)
     return (
-        <ToxicReportPage {...games[id]} onSave={onSave} />
+        <ToxicReportPage {...games[id]} onSave={onSave} id={id} st={st}/>
     )
 }

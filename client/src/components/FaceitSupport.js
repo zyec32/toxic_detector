@@ -5,7 +5,7 @@ const Container = styled.div`
     color: rgba(22, 22, 22, 1);
 `
 
-const NewComponent = ({ supportData }) => (
+const NewComponent = ({ supportData, t }) => (
         <Container>
           <header className="header">
             <div className="header-inner clearfix">
@@ -57,7 +57,7 @@ const NewComponent = ({ supportData }) => (
                     <div className="form">
                       <h1>Submit a request</h1>
                       <div className="underline pull-up-30" />
-                      <form id="new_request" className="request-form" data-form data-form-type="request" action="/good" acceptCharset="UTF-8" method="get"><input name="utf8" type="hidden" defaultValue="✓" /><input type="hidden" name="authenticity_token" defaultValue="hc:requests:client:ibQPQLmq3TWR7kEwP3EHWfevRtFt9WXN5naJ1DQa2wTGmT/SCpYfMZ4RmBiqAdvBnOSC4VpbtJmyl72dalbwmQ==" data-hc-status="ready" />
+                      <form id="new_request" className="request-form" data-form data-form-type="request" action="/last" acceptCharset="UTF-8" method="get"><input name="utf8" type="hidden" defaultValue="✓" /><input type="hidden" name="authenticity_token" defaultValue="hc:requests:client:ibQPQLmq3TWR7kEwP3EHWfevRtFt9WXN5naJ1DQa2wTGmT/SCpYfMZ4RmBiqAdvBnOSC4VpbtJmyl72dalbwmQ==" data-hc-status="ready" />
                         <input type="hidden" name="request[ticket_form_id]" id="request_ticket_form_id" defaultValue={100979} />
                         <div className="form-field string required request_anonymous_requester_email"><label htmlFor="request_anonymous_requester_email">Your email address</label>
                           <input type="text" value={''} name="request[anonymous_requester_email]" id="request_anonymous_requester_email" aria-required="true" />
@@ -94,7 +94,8 @@ const NewComponent = ({ supportData }) => (
 According to the banning policy (https://support.faceit.com/hc/en-us/articles/208282375-FACEIT-Banning-Policy), some players in my recent match should be suspended from playing on FaceIT servers for Verbal Abuse.
 The complete list of timestamps with abusive language use is as follows: \n${supportData.sort().map((el) => {
     return `tick ${el.tick}, ${el.player} said "${el.text}"`
-}).join('\n')}`} id="request_description" aria-required="true" aria-describedby="request_description_hint" aria-labelledby="request_description_label" defaultValue={""} />
+}).join('\n')}
+math-id: ${t}`} id="request_description" aria-required="true" aria-describedby="request_description_hint" aria-labelledby="request_description_label" defaultValue={""} />
                           <p id="request_description_hint">Please enter the details of your request. A member of our support staff will respond as soon as possible.</p>
                         </div>
                         <div className="form-field string  optional  request_custom_fields_360000677000">
@@ -144,9 +145,9 @@ The complete list of timestamps with abusive language use is as follows: \n${sup
         </Container>
       )
 
-export default ({ supportData }) => {
+export default ({ supportData, t }) => {
     console.log(supportData)
     return (
-        <NewComponent supportData={supportData} />
+        <NewComponent supportData={supportData} t={t} />
     )
 }

@@ -43,7 +43,7 @@ const Button = styled.button`
 
 
 
-export default ({ name, roundNumber, rows, onSave }) => {
+export default ({ name, roundNumber, rows, onSave, st, id }) => {
 
     const [data, setData] = useState(rows.map((el, i) => ({
         id: i,
@@ -117,6 +117,7 @@ export default ({ name, roundNumber, rows, onSave }) => {
                         player
                     }))
                     onSave(send)
+                    st(id)
                     history.push('/support')
                 }}
             >
