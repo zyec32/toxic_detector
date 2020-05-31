@@ -15,12 +15,28 @@ module.exports = {
         use: {
           loader: "babel-loader"
         },
+      },
+      {
+        test: /\.(png|svg|jpg|gif|webp)$/,
+        use: [
+          'file-loader'
+        ]
+      },
+      {
+        test: /\.mp3$/,
+        include: path.resolve(__dirname, 'src/audios'),
+        use: [
+          'file-loader'
+        ]
       }
     ]
+  },
+  devServer: {
+    historyApiFallback: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/index.html"
     })
   ]
-};
+}

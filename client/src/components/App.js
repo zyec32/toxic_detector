@@ -6,6 +6,13 @@ import {
   Route,
   Redirect
 } from 'react-router-dom';
+import ToxicReportPage from './toxicDetectorPage/ToxicReportPage'
+import LoginPage from './loginPage/LoginPage'
+import MatchPage from './matchesPage/MatchPage'
+import MainPage from './mainPage/MainPage'
+import FaceitSupport from './FaceitSupport'
+import Table from './Table'
+
 
 const Title = styled.h1`
     font-size: 1.5em;
@@ -15,14 +22,27 @@ const Title = styled.h1`
 
 export default () => (
     <Router>
-        <div>
+        {/* <div>
             <Title>Toxic!</Title>
-        </div>
+        </div> */}
         <Switch>
             <Route exact path="/">
-                <div>
-                    Hi
-                </div>
+                <MainPage />
+            </Route>
+            <Route exact path="/login">
+                <LoginPage />
+            </Route>
+            <Route exact path="/table">
+                <Table />
+            </Route>
+            <Route exact path="/support">
+                <FaceitSupport />
+            </Route>
+            <Route exact path="/match">
+                <MatchPage />
+            </Route>
+            <Route exact path="/toxic">
+                <ToxicReportPage name={'Player1'} />
             </Route>
             <Redirect to="/" />
         </Switch>
