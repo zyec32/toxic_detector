@@ -15,11 +15,11 @@ const rows = [
     },
     {
         name: 'Zyec32',
-        value: 10
+        value: 40
     },
     {
         name: 'Zyec32',
-        value: 10
+        value: 80
     },
 ];
 
@@ -45,12 +45,13 @@ const TableRoot = styled.div`
 const CellWrapper = styled.div`
     font-size: 36px;
     line-height: 42px;
-    color: white;
+    font-family:Play,sans-serif;
+    color: ${({color}) => (color)};
 `
 
-const Cell = ({ children, ...otherProps }) => (
+const Cell = ({ children, color, ...otherProps }) => (
     <TableCell {...otherProps}>
-        <CellWrapper>
+        <CellWrapper color={color}>
             {children}
         </CellWrapper>
     </TableCell>
@@ -94,8 +95,8 @@ export default () => {
                         <Table aria-label="customized table">
                             <TableHead>
                                 <TableRow>
-                                    <Cell align="center">Player</Cell>
-                                    <Cell align="center">Toxic index</Cell>
+                                    <Cell color={'#FFFFFF'} align="center">Player</Cell>
+                                    <Cell color={'#FFFFFF'} align="center">Toxic index</Cell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
@@ -103,10 +104,10 @@ export default () => {
                                     <TableRow key={row.name} onClick={() => {
                                         history.push('/toxic')
                                     }} >
-                                        <Cell align="center" component="th" scope="row">
+                                        <Cell align="center" component="th" scope="row" color={'#FFFFFF'}>
                                             {row.name}
                                         </Cell>
-                                        <Cell align="center" >{row.value}</Cell>
+                                        <Cell align="center" color={row.value < 20 ? '#4CD964' : row.value < 60 ? '#FF9500' : '#FF3B30'} >{row.value}</Cell>
                                     </TableRow>
                                 ))}
                             </TableBody>

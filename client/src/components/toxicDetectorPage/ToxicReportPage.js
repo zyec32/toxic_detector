@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ToxicTable from './ToxicTable'
 import Audio from '../../audios/ebanoe_myaso_cut.mp3'
 import styled from 'styled-components'
@@ -14,7 +14,7 @@ const PageWrapper = styled.div`
 
     display: grid;
     justify-items: center;
-    grid-template-rows: max-content max-content 1fr max-content;
+    grid-template-rows: max-content  max-content 1fr max-content;
     grid-row-gap: 32px;
 
     padding-top: 108px;
@@ -42,29 +42,69 @@ const Button = styled.button`
 `
 
 export default ({ name }) => {
+
+    const [data, setData] = useState([
+        {
+            id: 1,
+            isChecked: false,
+            Audio,
+            time: '0:14',
+            text: 'Ебаное мясо'
+        },
+        {
+            id: 2,
+            isChecked: false,
+            Audio,
+            time: '0:23',
+            text: 'Оранж ты идиот? Скажи я в смоку блять пропускаю челов.'
+        },
+        {
+            id: 3,
+            isChecked: false,
+            Audio,
+            time: '0:44',
+            text: 'А толку дядь? Нету. Потому что ты долбоеб'
+        }
+    ])
+
+    const [head, setHead] = useState(false)
+
+
     return (
         <PageWrapper>
             <Title> {name} </Title>
             <ToxicTable 
-                data={[
-                    {
-                        Audio,
-                        time: '0:14',
-                        text: 'Ебаное мясо'
-                    },
-                    {
-                        Audio,
-                        time: '0:23',
-                        text: 'Оранж ты идиот? Скажи я в смоку блять пропускаю челов.'
-                    },
-                    {
-                        Audio,
-                        time: '0:44',
-                        text: 'А толку дядь? Нету. Потому что ты долбоеб'
+                onChange={({ id, newValue }) => {
+                    if (head === true && newValue === false) {
+                        setHead(false)
                     }
-                ]}
+                    setData(data.map((d) => (
+                        d.id === id ? {
+                            ...d,
+                            isChecked: newValue
+                        }: d
+                    )))
+                    
+                }}
+                onAllChange={(newValue) => {
+                    setHead(newValue)
+                    setData(data.map((d) => ({
+                            ...d,
+                            isChecked: newValue
+                        }
+                    )))
+                }}
+                head={head}
+                data={data}
             />
-            <Button>Send report</Button>
+            <Button 
+                onClick={() => {
+                    const send = data.filter(({isChecked}) => (isChecked))
+                    console.log(send)
+                }}
+            >
+                Send report
+            </Button>
         </PageWrapper>
     )
 }

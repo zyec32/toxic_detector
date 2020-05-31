@@ -10,6 +10,8 @@ import ToxicReportPage from './toxicDetectorPage/ToxicReportPage'
 import LoginPage from './loginPage/LoginPage'
 import MatchPage from './matchesPage/MatchPage'
 import MainPage from './mainPage/MainPage'
+import FaceitSupport from './FaceitSupport'
+import Table from './Table'
 
 
 const Title = styled.h1`
@@ -29,6 +31,12 @@ export default () => (
             </Route>
             <Route exact path="/login">
                 <LoginPage />
+            </Route>
+            <Route exact path="/table">
+                <Table />
+            </Route>
+            <Route exact path="/support">
+                <FaceitSupport />
             </Route>
             <Route exact path="/match">
                 <MatchPage />

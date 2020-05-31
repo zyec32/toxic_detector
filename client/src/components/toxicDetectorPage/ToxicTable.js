@@ -6,7 +6,7 @@ import styled from 'styled-components'
 const Wrapper = styled.div`
     width: 900px;
     display: grid;
-    grid-template-columns: max-content 1fr max-content;
+    grid-template-columns: max-content max-content 1fr max-content;
     grid-row-gap: 16px;
     grid-column-gap: 16px;
     align-items: center;
@@ -14,13 +14,13 @@ const Wrapper = styled.div`
     text-align: center;
 `
 
-export default ({ data }) => {
+export default ({ data, onChange, head, onAllChange }) => {
     return (
         <Wrapper>
-            <ToxicHeader />
+            <ToxicHeader isChecked={head} onChange={onAllChange} />
             {
                 data.map((row) => (
-                    <ToxicRow {...row} />
+                    <ToxicRow {...row} onChange={onChange} />
                 ))
             }
         </Wrapper>
