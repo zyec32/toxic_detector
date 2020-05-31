@@ -9,17 +9,31 @@ function createData(name, calories, fat, carbs, protein) {
 }
 
 const rows = [
+    // {
+    //     name: 'Zyec32',
+    //     value: 10
+    // },
+    // {
+    //     name: 'Zyec32',
+    //     value: 40
+    // },
+    // {
+    //     name: 'Zyec32',
+    //     value: 80
+    // },
     {
-        name: 'Zyec32',
-        value: 10
+        id: '1-ac19904a-f02b-4e03-923d-287514ec52d6',
+        date: '26-05-2020',
+        map: 'de_mirage',
+        score: '16:19',
+        toxic: 2
     },
     {
-        name: 'Zyec32',
-        value: 40
-    },
-    {
-        name: 'Zyec32',
-        value: 80
+        id: '1-68d3fbf5-041a-4763-9a30-0dcc244deaff',
+        date: '27-05-2020',
+        map: 'de_dust2',
+        score: '16:12',
+        toxic: 3
     },
 ];
 
@@ -47,17 +61,18 @@ const CellWrapper = styled.div`
     line-height: 42px;
     font-family:Play,sans-serif;
     color: ${({color}) => (color)};
+    cursor: ${({pointer}) => (pointer ? 'pointer' : 'auto')};
 `
 
-const Cell = ({ children, color, ...otherProps }) => (
+const Cell = ({ children, color, pointer, ...otherProps }) => (
     <TableCell {...otherProps}>
-        <CellWrapper color={color}>
+        <CellWrapper color={color} pointer={pointer}>
             {children}
         </CellWrapper>
     </TableCell>
 )
 
-export default () => {
+export default ({  }) => {
     const history = useHistory();
     const [login, setLogin] = useState(null)
     const [password, setPassword] = useState(null)
@@ -95,19 +110,35 @@ export default () => {
                         <Table aria-label="customized table">
                             <TableHead>
                                 <TableRow>
-                                    <Cell color={'#FFFFFF'} align="center">Player</Cell>
-                                    <Cell color={'#FFFFFF'} align="center">Toxic index</Cell>
+                                    <Cell color={'#FFFFFF'} align="center">Lobby URL</Cell>
+                                    <Cell color={'#FFFFFF'} align="center">Data</Cell>
+                                    <Cell color={'#FFFFFF'} align="center">Map</Cell>
+                                    <Cell color={'#FFFFFF'} align="center">Score</Cell>
+                                    <Cell color={'#FFFFFF'} align="center">Toxic detections</Cell>
+                                    <Cell color={'#FFFFFF'} align="center">Report</Cell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
                                 {rows.map((row) => (
                                     <TableRow key={row.name} onClick={() => {
-                                        history.push('/toxic')
+                                        
                                     }} >
                                         <Cell align="center" component="th" scope="row" color={'#FFFFFF'}>
-                                            {row.name}
+                                            <a href={`https://www.faceit.com/en/csgo/room/${row.id}`}>
+                                                Go
+                                            </a>
                                         </Cell>
-                                        <Cell align="center" color={row.value < 20 ? '#4CD964' : row.value < 60 ? '#FF9500' : '#FF3B30'} >{row.value}</Cell>
+                                        <Cell align="center" color={'white'} >{row.date}</Cell>
+                                        <Cell align="center" color={'white'} >{row.map}</Cell>
+                                        <Cell align="center" color={'white'} >{row.score}</Cell>
+                                        <Cell align="center" color={'white'} >{row.toxic}</Cell>
+                                        <Cell align="center" color={'white'} pointer onClick={() => {
+                                                history.push(`/toxic/${row.id}`)
+                                            }}>
+                                            <a >
+                                                ReportIt
+                                            </a>
+                                        </Cell>
                                     </TableRow>
                                 ))}
                             </TableBody>

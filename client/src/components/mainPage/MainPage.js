@@ -33,7 +33,7 @@ export default () => {
             <Button onClick={() => {
                 history.push('/login')
             }}>
-                Login throw FaceIt
+                Login through FaceIt
             </Button>
         </PageWrapper>
     )
